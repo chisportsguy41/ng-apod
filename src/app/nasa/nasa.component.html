@@ -1,7 +1,7 @@
-<div *ngIf="NASA">
+<button id="random" (click)="getNasa()">Get Random Image</button>
+<br>
+<div *ngIf="NASA; else elseBlock">
   <h2>{{NASA.title}}</h2>
-    <button id="random" (click)="getNasa()">Get Random Image</button>
-    <br>
     <form id="inputDate">
       <label for="date">Choose a date (yyyy-mm-dd): </label>
       <input id="date"><button id="submit" (click)="submit()">Submit</button>
@@ -19,3 +19,6 @@
     <div *ngIf="NASA.copyright"><em>Copyright: {{NASA.copyright}}</em></div>
     <div>{{NASA.explanation}}</div>
 </div>
+<ng-template #elseBlock>
+  <div class="alert alert-danger">Oops! Something went wrong! Try hitting the random button or refreshing the page.</div>
+</ng-template>
